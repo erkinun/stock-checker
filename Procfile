@@ -1,0 +1,1 @@
+web: java -jar target/stock_checker.jar

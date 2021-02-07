@@ -14,6 +14,7 @@
                  [ring/ring-jetty-adapter "1.9.0"]
                  [ring/ring-json "0.5.0"]]
   :main stock-checker.core/-main
+  :min-lein-version "2.9.4"
   :repl-options {:init-ns stock-checker.core}
   :profiles {:uberjar {:main         stock-checker.core
                        :uberjar-name "stock_checker.jar"}})
