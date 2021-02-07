@@ -1,6 +1,7 @@
 (ns stock-checker.core
   (:require
     [clj-http.client :as client]
+    [environ.core :refer [env]]
     [hickory.core :as hcore]
     [hickory.select :as s]
     [clojure.string :as string]
@@ -39,19 +40,19 @@
 
 (defn now [] (new Date))
 
-;; TODO host it on heroku?
 (defn -main []
-  (at/every
-    (* 5 60000)                                             ;; every 5 minutes
-    (fn []
-      (prn (str "checking at " (now)))
-      (stock-check "PS5" ps5-url)
-      (stock-check "PS5 Digital" ps5-digital-url)
-      (stock-check "Dual sense: " in-stock-url))
-    @thread-pool
-    :desc "Check playstation 5 stock"
-    :initial-delay 0)
-  (jetty/run-jetty app {:port 4000 :join? false :deamon true}))
+  (let [port (Integer. (or (env :port) 4000))]
+    (at/every
+      (* 5 60000)                                           ;; every 5 minutes
+      (fn []
+        (prn (str "checking at " (now)))
+        (stock-check "PS5" ps5-url)
+        (stock-check "PS5 Digital" ps5-digital-url)
+        (stock-check "Dual sense: " in-stock-url))
+      @thread-pool
+      :desc "Check playstation 5 stock"
+      :initial-delay 0)
+    (jetty/run-jetty app {:port port :join? false :deamon true})))
 
 
 

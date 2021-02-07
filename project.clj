@@ -5,6 +5,7 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [clj-http "3.10.3"]
+                 [environ "1.2.0"]
                  [hickory "0.7.1"]
                  [overtone/at-at "1.2.0"]
                  [metosin/reitit-ring "0.1.0"]
