@@ -28,8 +28,6 @@
       :initial-delay 0)
     (jetty/run-jetty app {:port port :join? false :deamon true})))
 
-
-
 (comment
 
   (def ps5-status (checks/amazon-check! config/ps5-digital-url))

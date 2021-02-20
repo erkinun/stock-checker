@@ -1,10 +1,10 @@
 # stock_checker
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure app to notify myself for ps5 stock : )
 
 ## Usage
 
-FIXME
+Just run `lein run` or create an uberjar.
 
 ## License
 
