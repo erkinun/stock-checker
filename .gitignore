@@ -11,3 +11,4 @@ pom.xml.asc
 .hgignore
 .hg/
 .idea/
+stock_checker.iml
